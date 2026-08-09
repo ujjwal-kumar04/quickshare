@@ -16,6 +16,7 @@ const { notFound, errorHandler } = require('./middleware/errorMiddleware');
 const { apiLimiter } = require('./middleware/rateLimitMiddleware');
 
 const app = express();
+const clientOrigin = (process.env.CLIENT_URL || 'http://localhost:5173').replace(/\/$/, '');
 
 // Security headers
 app.use(helmet());
@@ -23,7 +24,7 @@ app.use(helmet());
 // CORS - restricted to the configured client origin only (never wide open in production)
 app.use(
   cors({
-    origin: process.env.CLIENT_URL || 'http://localhost:5173',
+    origin: clientOrigin,
     credentials: true,
   })
 );
