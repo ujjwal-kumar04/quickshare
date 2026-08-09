@@ -1,0 +1,59 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-base-light dark:bg-base-dark text-slate-700 dark:text-slate-200 font-sans transition-colors duration-300;
+}
+
+/* ---------- Neumorphism component primitives ---------- */
+
+.neu-card {
+  @apply bg-base-light dark:bg-base-dark rounded-neu shadow-neu dark:shadow-neu-dark transition-shadow duration-300;
+}
+
+.neu-flat {
+  @apply bg-base-light dark:bg-base-dark rounded-neu shadow-neu-sm dark:shadow-neu-dark-sm;
+}
+
+.neu-inset {
+  @apply bg-base-light dark:bg-base-dark rounded-neu shadow-neu-inset dark:shadow-neu-dark-inset;
+}
+
+.neu-btn {
+  @apply bg-base-light dark:bg-base-dark rounded-2xl shadow-neu-sm dark:shadow-neu-dark-sm
+    active:shadow-neu-pressed dark:active:shadow-neu-dark-pressed
+    transition-all duration-150 select-none;
+}
+
+.neu-btn:active {
+  transform: translateY(1px);
+}
+
+.neu-input {
+  @apply bg-base-light dark:bg-base-dark rounded-2xl shadow-neu-inset dark:shadow-neu-dark-inset
+    px-4 py-3 outline-none placeholder:text-slate-400 dark:placeholder:text-slate-500
+    focus:ring-2 focus:ring-accent-500/40 transition-all duration-150 w-full;
+}
+
+.neu-icon-btn {
+  @apply neu-btn flex items-center justify-center rounded-full;
+}
+
+/* Custom scrollbar to match the soft aesthetic */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-slate-300 dark:bg-slate-700 rounded-full;
+}
